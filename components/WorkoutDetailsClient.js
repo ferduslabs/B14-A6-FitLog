@@ -15,10 +15,13 @@ export default function WorkoutDetailsClient({ workoutId }) {
   useEffect(() => {
     async function getWorkout() {
       try {
-        const response = await fetch(API_BASE + '/' + workoutId);
+        const response = await fetch(API_BASE);
         const data = await response.json();
-        if (data && data.id) {
-          setWorkout(data);
+        if (Array.isArray(data)) {
+          const found = data.find(function (w) {
+            return String(w.id) === String(workoutId);
+          });
+          setWorkout(found || null);
         } else {
           setWorkout(null);
         }

@@ -48,15 +48,21 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <Link
             href="/my-plan"
-            className="rounded-full bg-accent px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-ink transition-colors hover:bg-accent2"
+            className="flex items-center gap-1.5 rounded-full bg-surface px-2.5 py-1.5 text-[11px] font-semibold text-white transition-colors hover:bg-surface2"
           >
-            Plan {planContext.plan.length}
+            Plan
+            <span className="flex h-5 min-w-[20px] items-center justify-center rounded-full bg-accent px-1 text-[10px] font-bold text-ink">
+              {planContext.plan.length}
+            </span>
           </Link>
           <Link
             href="/my-plan"
-            className="rounded-full border border-accent px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-accent transition-colors hover:bg-accent/10"
+            className="flex items-center gap-1.5 rounded-full bg-surface px-2.5 py-1.5 text-[11px] font-semibold text-white transition-colors hover:bg-surface2"
           >
-            Saved {planContext.saved.length}
+            Saved
+            <span className="flex h-5 min-w-[20px] items-center justify-center rounded-full border border-white/40 px-1 text-[10px] font-bold text-white">
+              {planContext.saved.length}
+            </span>
           </Link>
           <button
             type="button"

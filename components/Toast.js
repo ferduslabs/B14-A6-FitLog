@@ -13,13 +13,13 @@ export default function Toast() {
   const isError = planContext.toast.type === 'error';
 
   return (
-    <div className="pointer-events-none fixed right-4 top-20 z-50 sm:right-6">
+    <div className="pointer-events-none fixed right-4 top-16 z-50 sm:right-6">
       <div
         className={
-          'toast-in flex items-center gap-3 rounded-xl border px-4 py-2.5 shadow-xl backdrop-blur ' +
+          'toast-in flex items-center gap-2.5 rounded-full border px-3.5 py-2 shadow-lg backdrop-blur ' +
           (isError
-            ? 'border-red-500/30 bg-[#0a0a0a]/95 text-white'
-            : 'border-white/10 bg-[#0a0a0a]/95 text-white')
+            ? 'border-red-500/40 bg-black/85 text-white'
+            : 'border-white/10 bg-black/85 text-white')
         }
       >
         <span

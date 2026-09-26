@@ -35,6 +35,8 @@ export default function WorkoutDetailsClient({ workoutId }) {
   let specs = [];
   if (workout) {
     specs = [
+      { label: 'Equipment', value: workout.equipment },
+      { label: 'Difficulty', value: workout.difficulty },
       { label: 'Sets', value: String(workout.sets) },
       { label: 'Reps', value: workout.reps },
       { label: 'Duration', value: workout.duration + ' min' },

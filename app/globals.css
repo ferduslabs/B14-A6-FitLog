@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0f1115;
+  color: #e5e7eb;
+  font-family: var(--font-inter), sans-serif;
+}
+
+::selection {
+  background-color: #ccff00;
+  color: #0f1115;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.toast-in {
+  animation: toast-in 0.2s ease-out;
+}

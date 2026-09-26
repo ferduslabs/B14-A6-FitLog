@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import API_BASE from '@/lib/api';
 import { usePlan, PLAN_LIMIT } from '@/context/PlanContext';
 import LoadingSpinner from '@/components/LoadingSpinner';
-import { IconArrowLeft, IconBookmark, IconPlus } from '@/components/Icons';
+import { IconArrowLeft, IconBookmark, IconListPlus } from '@/components/Icons';
 
 export default function WorkoutDetailsClient({ workoutId }) {
   const planContext = usePlan();
@@ -36,8 +36,6 @@ export default function WorkoutDetailsClient({ workoutId }) {
   let specs = [];
   if (workout) {
     specs = [
-      { label: 'Equipment', value: workout.equipment },
-      { label: 'Difficulty', value: workout.difficulty },
       { label: 'Sets', value: String(workout.sets) },
       { label: 'Reps', value: workout.reps },
       { label: 'Duration', value: workout.duration + ' min' },
@@ -73,7 +71,7 @@ export default function WorkoutDetailsClient({ workoutId }) {
         <p className="text-sm text-muted">This lift is not in the library. Head back and pick another one.</p>
         <Link
           href="/"
-          className="rounded-lg bg-accent px-5 py-3 text-xs font-bold uppercase tracking-wide text-ink transition-colors hover:bg-accent2"
+          className="rounded-full bg-accent px-6 py-3 text-xs font-bold uppercase tracking-wide text-ink transition-colors hover:bg-accent2"
         >
           Go to workouts
         </Link>
@@ -149,16 +147,16 @@ export default function WorkoutDetailsClient({ workoutId }) {
               type="button"
               onClick={handleAddToPlan}
               disabled={alreadyInPlan || planIsFull}
-              className="flex items-center gap-2 rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-ink transition-colors enabled:hover:bg-accent2 disabled:cursor-not-allowed disabled:opacity-50"
+              className="flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-ink transition-colors enabled:hover:bg-accent2 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              <IconPlus className="h-4 w-4" />
+              <IconListPlus className="h-4 w-4" />
               {alreadyInPlan ? "In today's plan" : planIsFull ? 'Plan is full (5 lifts)' : "Add to today's plan"}
             </button>
             <button
               type="button"
               onClick={handleSaveForLater}
               disabled={alreadySaved}
-              className="flex items-center gap-2 rounded-lg border border-line px-5 py-3 text-sm font-medium text-bright transition-colors enabled:hover:border-accent enabled:hover:text-accent disabled:cursor-not-allowed disabled:opacity-50"
+              className="flex items-center gap-2 rounded-full border border-white/30 px-5 py-3 text-sm font-medium text-bright transition-colors enabled:hover:border-accent enabled:hover:text-accent disabled:cursor-not-allowed disabled:opacity-50"
             >
               <IconBookmark className="h-4 w-4" />
               {alreadySaved ? 'Saved' : 'Save for later'}

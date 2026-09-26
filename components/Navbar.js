@@ -38,7 +38,7 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-8 md:flex">
           <Link href="/" className={getNavLinkClass(pathname === '/')}>
-            Workout
+            Workouts
           </Link>
           <Link href="/my-plan" className={getNavLinkClass(pathname.indexOf('/my-plan') === 0)}>
             My Plan
@@ -79,7 +79,7 @@ export default function Navbar() {
         <div className="border-t border-line px-4 py-3 md:hidden">
           <div className="flex flex-col gap-3">
             <Link href="/" className={getNavLinkClass(pathname === '/')} onClick={closeMenu}>
-              Workout
+              Workouts
             </Link>
             <Link href="/my-plan" className={getNavLinkClass(pathname.indexOf('/my-plan') === 0)} onClick={closeMenu}>
               My Plan

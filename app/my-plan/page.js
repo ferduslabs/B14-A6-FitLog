@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import API_BASE from '@/lib/api';
+import { fetchWorkouts } from '@/lib/fetchWorkouts';
 import { usePlan } from '@/context/PlanContext';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import PlanCard from '@/components/PlanCard';
@@ -19,8 +19,7 @@ export default function MyPlanPage() {
   useEffect(() => {
     async function getWorkouts() {
       try {
-        const response = await fetch(API_BASE);
-        const data = await response.json();
+        const data = await fetchWorkouts();
         if (Array.isArray(data)) {
           setAllWorkouts(data);
         } else {

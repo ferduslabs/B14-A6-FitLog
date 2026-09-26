@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import API_BASE from '@/lib/api';
+import { fetchWorkouts } from '@/lib/fetchWorkouts';
 import { asset } from '@/lib/asset';
 import WorkoutCard from '@/components/WorkoutCard';
 import LoadingSpinner from '@/components/LoadingSpinner';
@@ -14,8 +14,7 @@ export default function HomePage() {
   useEffect(() => {
     async function getWorkouts() {
       try {
-        const response = await fetch(API_BASE);
-        const data = await response.json();
+        const data = await fetchWorkouts();
         setWorkouts(data);
       } catch (error) {
         setWorkouts([]);

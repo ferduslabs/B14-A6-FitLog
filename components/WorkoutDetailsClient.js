@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import API_BASE from '@/lib/api';
+import { fetchWorkouts } from '@/lib/fetchWorkouts';
 import { usePlan, PLAN_LIMIT } from '@/context/PlanContext';
 import LoadingSpinner from '@/components/LoadingSpinner';
 import { IconArrowLeft, IconBookmark, IconListPlus } from '@/components/Icons';
@@ -15,10 +15,9 @@ export default function WorkoutDetailsClient({ workoutId }) {
   useEffect(() => {
     async function getWorkout() {
       try {
-        const response = await fetch(API_BASE);
-        const data = await response.json();
-        if (Array.isArray(data)) {
-          const found = data.find(function (w) {
+        const allWorkouts = await fetchWorkouts();
+        if (Array.isArray(allWorkouts)) {
+          const found = allWorkouts.find(function (w) {
             return String(w.id) === String(workoutId);
           });
           setWorkout(found || null);
